@@ -1,0 +1,8 @@
+pyproject.toml
+fetchserp/__init__.py
+fetchserp/client.py
+fetchserp.egg-info/PKG-INFO
+fetchserp.egg-info/SOURCES.txt
+fetchserp.egg-info/dependency_links.txt
+fetchserp.egg-info/requires.txt
+fetchserp.egg-info/top_level.txt

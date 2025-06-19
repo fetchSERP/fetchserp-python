@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fetchserp"
+version = "0.1.1"
+description = "Light-weight, dependency-free Python SDK for the FetchSERP API"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [
+    { name = "FetchSERP", email = "contact@fetchserp.com" },
+]
+license = { text = "GPL-3.0-or-later" }
+dependencies = [
+    "requests>=2.28",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://fetchserp.com"
+Source = "https://github.com/fetchserp/fetchserp-python"
+Issues = "https://github.com/fetchserp/fetchserp-python/issues" 

@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: fetchserp
+Version: 0.1.0
+Summary: Light-weight, dependency-free Python SDK for the FetchSERP API
+Author-email: FetchSERP <contact@fetchserp.com>
+License: GPL-3.0-or-later
+Project-URL: Homepage, https://fetchserp.com
+Project-URL: Source, https://github.com/fetchserp/fetchserp-python
+Project-URL: Issues, https://github.com/fetchserp/fetchserp-python/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: requests>=2.28
