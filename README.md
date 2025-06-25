@@ -69,6 +69,7 @@ The SDK automatically adds `Authorization: Bearer <token>` to every request.
 | `get_serp_html` | GET | `/api/v1/serp_html` | SERP with full HTML |
 | `start_serp_js_job` | GET | `/api/v1/serp_js` | Launch JS-rendered SERP job (returns UUID) |
 | `get_serp_js_result` | GET | `/api/v1/serp_js/{uuid}` | Poll job result |
+| `get_serp_ai_mode` | GET | `/api/v1/serp_ai_mode` | SERP with AI Overview & AI Mode (fast, <30s) |
 | `get_serp_text` | GET | `/api/v1/serp_text` | SERP + extracted text |
 | `get_user` | GET | `/api/v1/user` | Authenticated user & credits |
 | `get_web_page_ai_analysis` | GET | `/api/v1/web_page_ai_analysis` | AI-powered page analysis |
@@ -89,7 +90,14 @@ result = fs.get_serp_js_result(uuid=job["data"]["uuid"])
 print(result["data"]["results"][0]["ai_overview"]["content"])
 ```
 
-### 3. Scrape a page with custom JavaScript
+### 3. Fast AI Overview & AI Mode (single call)
+```python
+result = fs.get_serp_ai_mode(query="how to learn python programming")
+print(result["data"]["results"][0]["ai_overview"]["content"])
+print(result["data"]["results"][0]["ai_mode_response"]["content"])
+```
+
+### 4. Scrape a page with custom JavaScript
 ```python
 payload = {
     "url": "https://fetchserp.com",

@@ -23,7 +23,7 @@ class FetchSERPClient:
         self.session.headers.update(
             {
                 "Authorization": f"Bearer {api_key}",
-                "User-Agent": "fetchserp-python-sdk/0.1.0",
+                "User-Agent": "fetchserp-python-sdk/0.1.2",
                 "Accept": "application/json",
             }
         )
@@ -282,6 +282,10 @@ class FetchSERPClient:
             country=country,
             pages_number=pages_number,
         )
+
+    def get_serp_ai_mode(self, *, query: str) -> Any:
+        """Get SERP with AI Overview and AI Mode response. Returns AI overview and AI mode response for the query. Less reliable than the 2-step process but returns results in under 30 seconds."""
+        return self._get("/api/v1/serp_ai_mode", query=query)
 
     # ---------------------------------------------------------------------
     # User & AI / SEO analysis
