@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: fetchserp
-Version: 0.1.2
+Version: 0.3.0
 Summary: Light-weight, dependency-free Python SDK for the FetchSERP API
 Author-email: FetchSERP <contact@fetchserp.com>
 License: GPL-3.0-or-later
@@ -88,9 +88,10 @@ The SDK automatically adds `Authorization: Bearer <token>` to every request.
 | `get_serp_js_result` | GET | `/api/v1/serp_js/{uuid}` | Poll job result |
 | `get_serp_ai_mode` | GET | `/api/v1/serp_ai_mode` | SERP with AI Overview & AI Mode (fast, <30s) |
 | `get_serp_text` | GET | `/api/v1/serp_text` | SERP + extracted text |
-| `get_user` | GET | `/api/v1/user` | Authenticated user & credits |
-| `get_web_page_ai_analysis` | GET | `/api/v1/web_page_ai_analysis` | AI-powered page analysis |
-| `get_web_page_seo_analysis` | GET | `/api/v1/web_page_seo_analysis` | Full SEO audit |
+| `get_user` | GET | `/api/v1/user` | Current user info + credit balance |
+| `get_webpage_ai_analysis` | GET | `/api/v1/webpage_ai_analysis` | Custom AI analysis of any webpage |
+| `get_playwright_mcp` | GET | `/api/v1/playwright_mcp` | GPT-4.1 browser automation via Playwright MCP |
+| `get_webpage_seo_analysis` | GET | `/api/v1/webpage_seo_analysis` | Full on-page SEO audit |
 
 ---
 ## Examples
@@ -118,9 +119,21 @@ print(result["data"]["results"][0]["ai_mode_response"]["content"])
 ```python
 payload = {
     "url": "https://fetchserp.com",
-    "js_script": "return { title: document.title, h1: document.querySelector('h1').innerText };"
+    "js_script": "return { title: document.title, h1: document.querySelector('h1')?.textContent };"
 }
-print(fs.scrape_page_js(**payload))
+result = fs.scrape_webpage_js(**payload)
+```
+
+### 5. Automate browser tasks with AI
+```python
+result = fs.get_playwright_mcp(prompt="Navigate to github.com and search for 'python selenium'")
+print(result["data"]["response"])
+```
+
+### 6. Comprehensive SEO audit
+```python
+result = fs.get_webpage_seo_analysis(url="https://fetchserp.com")
+print(result["data"]["summary"])
 ```
 
 ---

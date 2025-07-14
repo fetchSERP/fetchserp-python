@@ -23,7 +23,7 @@ class FetchSERPClient:
         self.session.headers.update(
             {
                 "Authorization": f"Bearer {api_key}",
-                "User-Agent": "fetchserp-python-sdk/0.1.2",
+                "User-Agent": "fetchserp-python-sdk/0.3.0",
                 "Accept": "application/json",
             }
         )
@@ -295,11 +295,15 @@ class FetchSERPClient:
         """Fetch information about the current API user and remaining credits."""
         return self._get("/api/v1/user")
 
-    def get_web_page_ai_analysis(self, *, url: str, prompt: str) -> Any:
-        """Ask the FetchSERP AI to run a custom free-form analysis on a web page."""
-        return self._get("/api/v1/web_page_ai_analysis", url=url, prompt=prompt)
+    def get_webpage_ai_analysis(self, *, url: str, prompt: str) -> Any:
+        """Analyze a webpage using AI with a custom prompt."""
+        return self._get("/api/v1/webpage_ai_analysis", url=url, prompt=prompt)
 
-    def get_web_page_seo_analysis(self, *, url: str) -> Any:
+    def get_playwright_mcp(self, *, prompt: str) -> Any:
+        """Use GPT-4.1 to remote control a browser via a Playwright MCP server."""
+        return self._get("/api/v1/playwright_mcp", prompt=prompt)
+
+    def get_webpage_seo_analysis(self, *, url: str) -> Any:
         """Run a full on-page SEO audit for a given URL."""
         return self._get("/api/v1/web_page_seo_analysis", url=url)
 

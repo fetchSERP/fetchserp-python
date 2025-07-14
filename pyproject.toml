@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "fetchserp"
-version = "0.1.2"
+version = "0.3.0"
 description = "Light-weight, dependency-free Python SDK for the FetchSERP API"
 readme = "README.md"
 requires-python = ">=3.8"
