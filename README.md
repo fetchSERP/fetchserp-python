@@ -127,3 +127,8 @@ Pull requests are welcome! Please open an issue first to discuss major changes.
 ## License
 
 GPL-3.0-or-later. See the [LICENSE](https://www.gnu.org/licenses/gpl-3.0.html) file for full text. 
+
+
+source .venv/bin/activate
+python -m build
+twine upload dist/*
